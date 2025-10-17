@@ -1,5 +1,5 @@
 name: first workflow
-on: workflow_dispatch
+on: push
 jobs:
   first-job:
     runs-on: ubuntu-latest
@@ -10,3 +10,8 @@ jobs:
       run: echo "That's it"
     - name: Print the OS name
       run: cat /etc/os*
+    - name: Multi line commands
+      run: |
+          touch myfile.txt
+          echo "Hello this is Sheila the funny bone!" > myfile.txt
+          cat myfile.txt
