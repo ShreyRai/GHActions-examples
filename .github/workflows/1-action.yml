@@ -9,4 +9,4 @@ jobs:
     - name: End Greetings
       run: echo "That's it"
     - name: Print the OS name
-      run: echo "cat /etc/os*"
+      run: cat /etc/os*
