@@ -1,0 +1,12 @@
+name: first workflow
+on: workflow_dispatch
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Greetings to the world
+      run: echo "Hello this is the First workflow"
+    - name: End Greetings
+      run: echo "That's it"
+    - name: Print the OS name
+      run: echo "cat /etc/os*"
