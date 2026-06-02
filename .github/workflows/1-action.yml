@@ -1,21 +1,14 @@
 name: first workflow
-on: push
+on: workflow_dispatch
 jobs:
   first-job:
     runs-on: ubuntu-latest
     steps: 
-    - name: Greetings to the world
-      run: echo "Hello this is the First workflow"
-    - name: End Greetings
-      run: echo "That's it"
-    - name: Print the OS name
-      run: cat /etc/os*
+    - name: Checkout step
+      uses: actions/checkout@v4  
     - name: List the items
-      run: ls -lrth 
+      run: ls -lrth ./Scripts
     - name: Multi line commands
-      run: |
-          touch myfile.txt
-          echo "Hello this is Sheila the funny bone!" > myfile.txt
-          cat myfile.txt
+      run: ./Scripts/script01.sh
     - name: List the items
       run: ls -lrth 
