@@ -11,7 +11,9 @@ jobs:
     - name: Job Starts
       run: echo "-------------- JOB BEGINS!-----------"
     - name: Script 01 executing!
-      run: bash ./Scripts/script01.sh
+      run: |
+        bash ./Scripts/script01.sh
+        cat file01.txt
     - name: Job accomplished step
       run: echo "-------------- JOB DONE!--------------"
   Script-2:
@@ -22,6 +24,8 @@ jobs:
       - name: Job Starts
         run: echo "-------------- JOB BEGINS!-----------"
       - name: Script 01 executing!
-        run: bash ./Scripts/script02.sh
+        run: |
+          bash ./Scripts/script02.sh
+          cat file01.txt
       - name: Job accomplished step
         run: echo "-------------- JOB DONE!--------------"
