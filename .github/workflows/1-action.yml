@@ -6,8 +6,8 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps: 
-   # - name: Checkout step
-     # uses: actions/checkout@v4  
+    - name: Checkout step
+      uses: actions/checkout@v4  
     - name: List the items
       run: ls -lrth ./Scripts
     - name: Multi line commands
