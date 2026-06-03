@@ -17,6 +17,7 @@ jobs:
     - name: Job accomplished step
       run: echo "-------------- JOB DONE!--------------"
   Script-2:
+      needs: Script-1
       runs-on: ubuntu-latest
       steps: 
       - name: Checkout step
