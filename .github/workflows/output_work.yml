@@ -1,5 +1,7 @@
 name: "Handles issue"
-on: issues
+on: 
+    issues:
+        types: opened
 jobs:
     output-info:
         runs-on: ubuntu-latest
