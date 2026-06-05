@@ -41,7 +41,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: imp-file
-          path: file01.txt
+          #path: file01.txt
       - name: Job accomplished step
         run: echo "-------------- JOB DONE!--------------"
         
