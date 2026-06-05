@@ -18,6 +18,11 @@ jobs:
       run: |
         bash ./Scripts/script01.sh
         cat file01.txt
+    - name: Upload Artifacts
+      uses: actions/upload-artifacts@v4
+      with:
+        name: imp-file
+        path: file01.txt
     - name: Job accomplished step
       run: echo "-------------- JOB DONE!--------------"
   Script-2:
@@ -32,6 +37,11 @@ jobs:
         run: |
           bash ./Scripts/script02.sh
           cat file01.txt
+      - name: Download Artifacts
+        uses: actions/download-artifacts@v4
+        with:
+          name: imp-file
+          path: file01.txt
       - name: Job accomplished step
         run: echo "-------------- JOB DONE!--------------"
-        #comment xyz
+        
