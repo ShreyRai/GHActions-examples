@@ -45,6 +45,7 @@ jobs:
         run: |
           bash ./Scripts/script02.sh
           cat file01.txt
+          echo "${{ needs.Script-1.outputs.statement }}"
       - name: Job accomplished step
         run: echo "-------------- JOB DONE!--------------"
         
