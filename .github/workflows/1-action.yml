@@ -9,15 +9,19 @@ on:
 jobs:
   Script-1:
     runs-on: ubuntu-latest
+    outputs: 
+      statement: ${{ steps.step3.outputs.statement }}
     steps: 
     - name: Checkout step
       uses: actions/checkout@v4  
     - name: Job Starts
       run: echo "-------------- JOB BEGINS!-----------"
     - name: Script 01 executing!
+      id: step3
       run: |
         bash ./Scripts/script01.sh
         cat file01.txt
+        echo "statement=ghjkhasduh@344342^342ehsu" >> $GITHUB_OUTPUT
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
