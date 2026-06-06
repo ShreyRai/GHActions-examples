@@ -43,7 +43,7 @@ jobs:
           name: imp-file
       - name: Script 01 executing!
         run: |
-          export MY_VAR="${{ needs.Script-1.outputs.statement }}" >>
+          export MY_VAR="${{ needs.Script-1.outputs.statement }}"
           bash ./Scripts/script02.sh
           cat file01.txt
           
