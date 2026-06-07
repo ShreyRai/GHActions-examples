@@ -13,6 +13,7 @@ env:
 jobs:
   Script-1:
     runs-on: ubuntu-latest
+    environment: dev
     outputs: 
       statement: ${{ steps.step3.outputs.statement }}
     env:
