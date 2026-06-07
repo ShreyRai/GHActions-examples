@@ -8,6 +8,7 @@ on:
     types: opened
 env:
   TEST_VAR: thisIsExampleVarWorkflow
+  MY_USER: ${{ vars.MY_USER }}
 jobs:
   Script-1:
     runs-on: ubuntu-latest
@@ -35,6 +36,7 @@ jobs:
       run: |
         echo "$TEST_VAR"
         echo "$TEST_VAR_1"
+        echo "$MY_USER"
     - name: Job accomplished step
       run: echo "-------------- JOB DONE!--------------"
   Script-2:
@@ -57,7 +59,7 @@ jobs:
       - name: Printing vars - job2 ###
         run: |
           echo "$TEST_VAR"
-          echo "$TEST_VAR_1"    
+          echo "${{ secrets.MY_SECRET }}"    
       - name: Job accomplished step
         run: echo "-------------- JOB DONE!--------------"
         
