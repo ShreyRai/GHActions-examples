@@ -54,7 +54,10 @@ jobs:
           export MY_VAR="${{ needs.Script-1.outputs.statement }}"
           bash ./Scripts/script02.sh
           cat file01.txt
-          
+      - name: Printing vars - job2 ###
+        run: |
+          echo "$TEST_VAR"
+          echo "$TEST_VAR_1"    
       - name: Job accomplished step
         run: echo "-------------- JOB DONE!--------------"
         
