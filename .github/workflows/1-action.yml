@@ -9,7 +9,7 @@ on:
 env:
   TEST_VAR: thisIsExampleVarWorkflow
   MY_USER: ${{ vars.MY_USER }}
-  MY_ENV_SECRET: ${{ env.MY_ENV_SECRET }}
+  MY_ENV_SECRET: ${{ secrets.MY_ENV_SECRET }}
 jobs:
   Script-1:
     runs-on: ubuntu-latest
