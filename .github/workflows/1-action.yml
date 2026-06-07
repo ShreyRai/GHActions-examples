@@ -6,11 +6,15 @@ on:
   workflow_dispatch:
   issues:
     types: opened
+env:
+  TEST_VAR: thisIsExampleVarWorkflow
 jobs:
   Script-1:
     runs-on: ubuntu-latest
     outputs: 
       statement: ${{ steps.step3.outputs.statement }}
+    env:
+      TEST_VAR_1: JobWorkflowVar
     steps: 
     - name: Checkout step
       uses: actions/checkout@v4  
@@ -27,6 +31,10 @@ jobs:
       with:
         name: imp-file
         path: file01.txt
+    - name: Printing vars
+      run: |
+        echo "$TEST_VAR"
+        echo "$TEST_VAR_1"
     - name: Job accomplished step
       run: echo "-------------- JOB DONE!--------------"
   Script-2:
