@@ -39,7 +39,7 @@ jobs:
         echo "$TEST_VAR"
         echo "$TEST_VAR_1"
         echo "$MY_USER"
-        echo "$MY_ENV_SECRET"
+        echo "$MY_ENV_SECRETt" #typo to make this step fail
     - name: Printing vars - check point
       if: success()
       run: echo "Vars are printed"
