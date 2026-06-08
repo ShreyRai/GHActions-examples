@@ -40,10 +40,14 @@ jobs:
         echo "$TEST_VAR_1"
         echo "$MY_USER"
         echo "$MY_ENV_SECRET"
+    - name: Printing vars - check point
+      if: success()
+      run: echo "Vars are printed"
     - name: Job accomplished step
       run: echo "-------------- JOB DONE!--------------"
   Script-2:
       needs: Script-1
+      if: failure() #this job should run only when script-1 job fails
       runs-on: ubuntu-latest
       steps: 
       - name: Checkout step
