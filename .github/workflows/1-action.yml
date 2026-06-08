@@ -96,6 +96,8 @@ jobs:
         run: echo "${{ needs.Job-p.outputs.statement2 }}" >> creds.txt
       - name: Value from Job1
         run: echo "${{ needs.Script-1.outputs.statement }}" >> creds.txt
+      - name: Printing file
+        run: cat creds.txt
         
         
         
