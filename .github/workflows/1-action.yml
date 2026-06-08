@@ -44,6 +44,7 @@ jobs:
       if: success()
       run: echo "Vars are printed"
     - name: Job accomplished step
+      if: always()
       run: echo "-------------- JOB DONE!--------------"
   Script-2:
       needs: Script-1
