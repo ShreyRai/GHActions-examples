@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - dev
   workflow_dispatch:
   issues:
     types: opened
@@ -46,6 +47,15 @@ jobs:
     - name: Job accomplished step
       if: always()
       run: echo "-------------- JOB DONE!--------------"
+  Job-p:
+    runs-on: ubuntu-latest
+    if: always()
+    outputs:
+      statement2: ${{ steps.parallel.outputs.value }}
+    steps:
+      - name: Parallel Job step
+        id: parallel
+        run: echo "value=Shazam123" >> $GITHUB_OUTPUT
   Script-2:
       needs: Script-1
       if: failure() #this job should run only when script-1 job fails
@@ -70,4 +80,22 @@ jobs:
           echo "${{ secrets.MY_SECRET }}"    
       - name: Job accomplished step
         run: echo "-------------- JOB DONE!--------------"
+  Job-3:
+    runs-on: ubuntu-latest
+    needs: Script-2
+    if: ${{ github.ref == '/refs/heads/dev' }}
+    steps:
+      - name: Dummy echo
+        run: echo "This will only be visible if you are on dev branch"
+  Job-4:
+    runs-on: ubuntu-linux
+    needs: [Job-3, Job-p, Script-1 ]
+    if: always()
+    steps:
+      - name: Collecting outputs
+        run: echo "${{ needs.Job-p.outputs.statement2 }}" >> creds.txt
+      - name: Value from Job1
+        run: echo "${{ needs.Script-1.outputs.statement }}" >> creds.txt
+        
+        
         
