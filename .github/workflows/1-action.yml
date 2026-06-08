@@ -40,7 +40,7 @@ jobs:
         echo "$TEST_VAR"
         echo "$TEST_VAR_1"
         echo "$MY_USER"
-        ech "$MY_ENV_SECRET" #wrong command for step failure
+        echo "$MY_ENV_SECRET" #wrong command for step failure
     - name: Printing vars - check point
       if: success()
       run: echo "Vars are printed"
@@ -88,7 +88,7 @@ jobs:
       - name: Dummy echo
         run: echo "This will only be visible if you are on dev branch"
   Job-4:
-    runs-on: ubuntu-linux
+    runs-on: ubuntu-latest
     needs: [Job-3, Job-p, Script-1 ]
     if: always()
     steps:
