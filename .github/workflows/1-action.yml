@@ -58,7 +58,7 @@ jobs:
         run: echo "value=Shazam123" >> $GITHUB_OUTPUT
   Script-2:
       needs: Script-1
-      if: failure() #this job should run only when script-1 job fails
+      #if: failure() #this job should run only when script-1 job fails
       runs-on: ubuntu-latest
       steps: 
       - name: Checkout step
