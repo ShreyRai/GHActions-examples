@@ -20,8 +20,9 @@ jobs:
         steps:
             - name: --Version check--
               run: cat /etc/os*
-            - name: --Check username ---
+            #- name: --Check username ---
               #run: echo "${{ matrix.python }}"
-              uses: ./.github/workflows/reusable.yml
-              with:
-                name: aws-ghaction-user-101
+    call-code:
+        uses: ./.github/workflows/reusable.yml
+        with:
+            name: aws-ghaction-user-101
