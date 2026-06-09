@@ -22,6 +22,6 @@ jobs:
               run: cat /etc/os*
             - name: --Check username ---
               #run: echo "${{ matrix.python }}"
-              uses: ./.github/workflows/resusable.yml
+              uses: ./.github/workflows/reusable.yml
               with:
                 name: aws-ghaction-user-101
