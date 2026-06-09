@@ -31,3 +31,7 @@ jobs:
               env:
                 RUN_CONTEXT: ${{ toJson(runner) }}
               run: echo $RUN_CONTEXT
+            - name: Context to runner without json
+              run: echo ${{ runner }}
+            - name: github repo
+              run: echo ${{ github.repository }}
