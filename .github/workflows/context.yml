@@ -2,24 +2,26 @@ name: A matrix workflow
 on: 
     push:
         branches:
-            - matrix
+            - reuse
 jobs:
     Test:
-        strategy:
-            matrix: 
-                os: [ubuntu-latest, ubuntu-24.04, ubuntu-22.04]
-                python: [3.9, 3.10, 3.12]
-                include:
-                    - os: ubuntu-latest
-                      python: 3.14
-                exclude:
-                    - os: ubuntu-22.04
-                      python: 3.9
-        runs-on: ${{ matrix.os }}
+        # strategy:
+        #     matrix: 
+        #         os: [ubuntu-latest, ubuntu-24.04, ubuntu-22.04]
+        #         python: [3.9, 3.10, 3.12]
+        #         include:
+        #             - os: ubuntu-latest
+        #               python: 3.14
+        #         exclude:
+        #             - os: ubuntu-22.04
+        #               python: 3.9
+        runs-on: ubuntu-latest
         
         steps:
             - name: --Version check--
               run: cat /etc/os*
-            - name: --Python version check---
-              run: echo "${{ matrix.python }}"
-    
+            - name: --Check username ---
+              #run: echo "${{ matrix.python }}"
+              uses: ./.
+              with:
+                name: aws-ghaction-user-101

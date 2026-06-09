@@ -1,0 +1,14 @@
+name: THis is Reusable code - to print user name
+on:
+    workflow_call:
+        inputs:
+            name:
+                required: true
+                default: admin-user
+                type: string
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print user name
+              run: echo "${{ inputs.name }}"
