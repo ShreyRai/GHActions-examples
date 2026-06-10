@@ -9,6 +9,9 @@ on:
         outputs:
             final-result-code: 
                 value: ${{ jobs.job2.outputs.result-code }}
+        secrets:
+            TOKEN_NUM:
+                required: true
 jobs:
     job1:
         runs-on: ubuntu-latest
@@ -23,3 +26,11 @@ jobs:
             - name: Return result code
               id: code
               run: echo "result=0 < SUCCESS >" >> $GITHUB_OUTPUT
+    job3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: secret
+              env:
+                TOKEN_NO: ${{ secrets.TOKEN_NUM }}
+              run: echo "Secrets job - ${{ env.TOKEN_NO }}"
+

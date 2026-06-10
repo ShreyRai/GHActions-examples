@@ -13,6 +13,8 @@ jobs:
         uses: ./.github/workflows/reusable.yml
         with:
             name: aws-ghaction-user-101
+        secrets:
+            TOKEN_NUM: ${{ secrets.TOKEN_NUMBER }}
     # pull-result-code:
     #     uses: ./.github/workflows/reusable.yml
     Check-result-code:
