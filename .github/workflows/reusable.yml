@@ -19,6 +19,7 @@ jobs:
             - name: Print user name
               run: echo "${{ inputs.name }}"
     job2:
+        needs: job1
         runs-on: ubuntu-latest
         outputs:
             result-code: ${{ steps.code.outputs.result }}
@@ -27,6 +28,7 @@ jobs:
               id: code
               run: echo "result=0 < SUCCESS >" >> $GITHUB_OUTPUT
     job3:
+        needs: job2
         runs-on: ubuntu-latest
         steps:
             - name: secret

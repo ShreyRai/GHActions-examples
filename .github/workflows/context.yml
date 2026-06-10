@@ -22,5 +22,5 @@ jobs:
         needs: Call-code
         steps:
             - name: Printing result code
-              run: echo "${{ needs.Call-code.outputs.final-result-code }}"
+              run: echo "Result code - ${{ needs.Call-code.outputs.final-result-code }}"
 
