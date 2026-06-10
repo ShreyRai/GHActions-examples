@@ -3,12 +3,23 @@ on:
     workflow_call:
         inputs:
             name:
-                required: true
+                #required: true
                 default: admin-user
                 type: string
+        outputs:
+            final-result-code: 
+                value: ${{ jobs.job2.outputs.result-code }}
 jobs:
     job1:
         runs-on: ubuntu-latest
         steps:
             - name: Print user name
               run: echo "${{ inputs.name }}"
+    job2:
+        runs-on: ubuntu-latest
+        outputs:
+            result-code: ${{ steps.code.outputs.result }}
+        steps:
+            - name: Return result code
+              id: code
+              run: echo "result=0 < SUCCESS >" >> $GITHUB_OUTPUT
