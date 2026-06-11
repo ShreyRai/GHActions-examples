@@ -1,13 +1,16 @@
 name: "Composite action file"
 description: " Runs multiple steps"
 inputs:
-  name:
+  username:
     default: "Default"
    
 runs:
   using: composite
   steps:
     - run: echo "------------------------------------"
-    - run: echo " This is user name - {{ inputs.name }}"
+      shell: bash
+    - run: echo " This is user name ${{ inputs.username }}"
+      shell: bash
     - run: echo "------------------------------------"
+      shell: bash
 
