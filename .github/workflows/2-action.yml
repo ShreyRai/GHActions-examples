@@ -2,7 +2,7 @@ name: Composite
 on: 
     push:
         branches:
-            [push]
+            [main]
 jobs:
   build:
     runs-on: ubuntu-latest
