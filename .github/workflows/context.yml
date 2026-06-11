@@ -10,4 +10,4 @@ jobs:
             - name: Push count
               run: echo "This is push no. 1"
             - name: Go to sleep
-              run: echo "sleep 300"
+              run: sleep 300
