@@ -104,7 +104,14 @@ jobs:
         run: echo "${{ needs.Script-1.outputs.statement }}" >> creds.txt
       - name: Printing file
         run: cat creds.txt
-
+  Job-5:
+    runs-on: ubuntu-latest
+    needs: Job-4
+    steps:
+      - name: Print username
+        uses: ./.github/actions/ssr-composite
+        with: 
+          name: Shrey-admin
         
         
         

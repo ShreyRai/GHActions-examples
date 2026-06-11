@@ -1,0 +1,13 @@
+name: "Composite action file"
+description: " Runs multiple steps"
+inputs:
+  name:
+    default: "Default"
+   
+runs:
+  using: composite
+  steps:
+    - run: echo "------------------------------------"
+    - run: echo " This is user name - {{ inputs.name }}"
+    - run: echo "------------------------------------"
+
