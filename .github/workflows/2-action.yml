@@ -1,0 +1,16 @@
+name: Composite 
+on: 
+    push:
+        branches:
+            [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Composite Action
+        uses: ./.github/actions/ssr-composite
+        with:
+          node-version: "22"
