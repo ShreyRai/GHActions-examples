@@ -1,26 +1,13 @@
-name: A reusable example
-on: 
+name: Concurrency check
+on:
     push:
         branches:
-            - reuse
+            [concurrency]
 jobs:
-    Test:
+    job1:
         runs-on: ubuntu-latest
         steps:
-            - name: --Version check--
-              run: cat /etc/os*
-    Call-code:
-        uses: ./.github/workflows/reusable.yml
-        with:
-            name: aws-ghaction-user-101
-        secrets:
-            TOKEN_NUM: ${{ secrets.TOKEN_NUMBER }}
-    # pull-result-code:
-    #     uses: ./.github/workflows/reusable.yml
-    Check-result-code:
-        runs-on: ubuntu-latest
-        needs: Call-code
-        steps:
-            - name: Printing result code
-              run: echo "Result code - ${{ needs.Call-code.outputs.final-result-code }}"
-
+            - name: Push count
+              run: echo "This is push no. 1"
+            - name: Go to sleep
+              run: echo "sleep 300"
