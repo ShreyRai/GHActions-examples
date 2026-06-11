@@ -3,11 +3,15 @@ on:
     push:
         branches:
             [concurrency]
+
+concurrency:
+    group: test
+    cancel-in-progress: true
 jobs:
     job1:
         runs-on: ubuntu-latest
         steps:
             - name: Push count
-              run: echo "This is push no. 2"
+              run: echo "This is push no. 3"
             - name: Go to sleep
               run: sleep 300
