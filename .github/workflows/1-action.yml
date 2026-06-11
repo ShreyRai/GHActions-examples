@@ -114,7 +114,7 @@ jobs:
       - name: Print username
         uses: ./.github/actions/ssr-composite
         with: 
-          name: Shrey-admin
+          username: Shrey-admin
         
         
         
