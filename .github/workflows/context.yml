@@ -8,6 +8,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Push count
-              run: echo "This is push no. 1"
+              run: echo "This is push no. 2"
             - name: Go to sleep
               run: sleep 300
